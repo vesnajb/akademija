@@ -30,6 +30,15 @@
             </div>
         </div>
     </div>
+    <?php 
+    if(isset($_GET['login']) && $_GET['login'] == 'error'){
+
+        ?>
+    <div class="container">
+        Pogresen username ili password
+    </div>
+    <?php } ?>
+
 </section>
 <?php
     include_once "sys/includes/foot.php";
