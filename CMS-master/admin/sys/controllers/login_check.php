@@ -10,6 +10,7 @@ print_r($login_content_obj);
 $username = $login_content_obj->admin->username;
 $password = $login_content_obj->admin->password;
 
+//so array
 // $username = $login_content['admin']['username'];
 // $password = $login_content['admin']['password'];
 
