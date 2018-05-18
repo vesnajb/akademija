@@ -3,6 +3,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Lastname</th>
+			<th>Email</th>
 			<th>Navigation</th>
 	</tr>
 	</thead>
@@ -12,11 +13,13 @@
 				echo "<tr>";
 				echo "<td>$user[firstname]</td>";
 				echo "<td>$user[lastname]</td>";
-				echo "<td><a href='?params=users/getUsers/$user[id]' >User</a></td>";
+				echo "<td>$user[email]</td>";
+				echo "<td><a href='/akademija/MVC/users/getUser/$user[id]' >User</a></td>";
 				echo "</tr>";
 			}
 		?>
-			<a href="?params"></a>
-
 	</tbody>
 </table>
+<a href="/akademija/MVC/users/getUsers/all">Show All Users</a>
+<br/>
+<a href="/akademija/MVC/posts/getPosts/all">Show All Posts</a>

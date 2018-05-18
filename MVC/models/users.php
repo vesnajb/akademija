@@ -14,14 +14,17 @@ class usersModel extends General{
 		// print_r($users);
 	}
 
-	function getUser(){
+	function getUser($user_id){
 		
-		$sql = "SELECT * FROM users";
+		$sql = "SELECT * FROM users WHERE id=$user_id";
 		$query = $this->db->query($sql);
 		$users = $query->fetchAll(PDO::FETCH_ASSOC);
 
 		return $users;
 		// print_r($users);
+	}
+	static function getWeather(){
+		echo General::getWeather();
 	}
 }
 

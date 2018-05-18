@@ -12,6 +12,16 @@ class General {
 
 		$this->db = new PDO($conn_string, $conn_username, $conn_password);
 	}
+
+	public static function getWeather(){
+		$apiKey = 'e8b5e755995d25633d3ae9f52219fd0c';
+
+		$url = "http://api.openweathermap.org/data/2.5/weather";
+		$params = "?q=Skopje&mode=html&appid=$apiKey";
+
+		return file_get_contents($url . $params);
+
+	}
 }
 
 

@@ -8,12 +8,15 @@ class users {
 		include "view/users.php";
 	}
 
-	function getUser(){
+	function getUser($user_id){  //$user_id = $input od index.php
 		$usersModel = new usersModel();
-		$users = $usersModel->getUser();
+		$users = $usersModel->getUser($user_id);
 		include "view/users.php";
 	}
-	
+	function getWeather(){
+		$usersModel = new usersModel();
+		$users = $usersModel->getWeather();
+	}
 }
 
 
