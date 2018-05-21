@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script
+		src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+</head>
+<body>
+
+	Firstname : 
+	<input type="text" name="" id="firstname">
+	<br><br>
+	Lastname : 
+	<input type="text" name="" id="lastname">
+	<br><br>
+	Email : 
+	<input type="text" name="" id="email">
+	<br><br>
+	Password : 
+	<input type="password" name="password" id="password">
+	<br><br>
+	<button onclick="klikAjax()">Submit</button>
+	<hr>
+	PRIMER PDF <br>
+	<input type="button" onclick="openPDF('_blank')" value="Otvori PDF Nov Tab">
+	<input type="button" onclick="openPDF('_self')" value="Otvori PDF">
+<script>
+	//$.get
+	//$.post
+	//$.ajax objeckt vo javascript
+
+	function klikAjax(){
+
+		let url = "c12.php";
+		const data = {
+				firstname : document.querySelector('#firstname').value,
+				lastname : document.getElementById('lastname').value,
+				email : $('#email').val(), //na jquery nacin
+				password : $('#password').val()
+			};
+			const data2 = {
+				firstname : document.querySelector('#firstname').value,
+				lastname : document.getElementById('lastname').value,
+				email : $('#email').val(), //na jquery nacin
+				password : $('#password').val()
+			};
+
+		$.ajax({
+			async: true, //pusti go i ne go cekaj
+			cache: false, //nekoi golemi request-i gi celo vreme zima od baza i celo vreme zema nova infomracija od sistemot
+			type: 'POST',
+			url: url, //kade da se prati
+			dataType: 'html', //koj tip na podatok
+			data: data,
+			success:(data)=>{  //ke vrati ako e 200
+				console.log('success');
+			},
+			error: function(data, status){ //error e ako bilo koj dug status se javi
+					console.log('error');
+			},
+			complete: (data, status)=>{
+					console.log('complete');
+			}
+	})
+
+	$.post(
+		url, data, function successFn(){
+		console.log('aaaaaaaaaaaaaaaaaa');
+	}, 'text'
+	);
+
+	};
+	function openPDF(type){
+		window.open("pdf.php", type);
+	}
+
+	
+
+</script>
+
+</body>
+</html>
