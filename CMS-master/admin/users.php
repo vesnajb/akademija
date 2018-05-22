@@ -2,7 +2,7 @@
 //    include_once "sys/controllers/user_check.php";
 
     $page = 'Users';
-    error_reporting(0);
+    // error_reporting(0);
     include_once "sys/includes/head.php";//skoro identicno so require_once, frlaat razlicen error
     include_once "sys/includes/navigation.php";
 ?>
@@ -34,45 +34,22 @@
                     </div>
 
                     <?php 
-                        $users[] = [
-                            'name' => 'Stavre',
-                            'email' => 'asd@asd.asd',
-                            'joined' => '2017-04-27'
-                        ];
-                        $users[] = [
-                            'name' => 'petre',
-                            'email' => 'asd@asd.asd',
-                            'joined' => '2017-04-27'
-                        ];
-                        $users[] = [
-                            'name' => 'pepi',
-                            'email' => 'asd@asd.asd',
-                            'joined' => '2017-04-27'
-                        ];
-                        $users[] = [
-                            'name' => 'Stojan',
-                            'email' => 'asd@asd.asd',
-                            'joined' => '2017-04-27'
-                        ];
-                        $users[] = [
-                            'name' => 'Saso',
-                            'email' => 'asd@asd.asd',
-                            'joined' => '2017-04-27'
-                        ];
-                        $users[] = [
-                            'name' => 'Sashka',
-                            'email' => 'asd@asd.asd',
-                            'joined' => '2017-04-27'
-                        ];
+                        
+                        require_once 'general.php';
+
+                        $sql = "SELECT * FROM users";
+                        $query = $db->query($sql);
+                        $users = $query->fetchAll(PDO::FETCH_ASSOC);
+
                     ?>
 
                     <div class="card-body">
                     <table class="table table-striped table-bordered main-color-bg-white text-center">
                         <thead class="main-color-bg-red-text-black">
                             <tr class="">
-                                <th>Name</th>
+                                <th>Name Lastname</th>
                                 <th>Email</th>
-                                <th>Joined</th>
+                                <th>Password</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,33 +58,13 @@
                             foreach ($users as $user) {
                                 echo "
                                     <tr>
-                                        <td>{$user['name']}</td>
+                                        <td>{$user['firstname']} {$user['lastname']}</td>
                                         <td>{$user['email']}</td>
-                                        <td>{$user['joined']}</td>
+                                        <td>{$user['password']}</td>
                                     </tr>
                                 ";
                             }
                             ?>
-                            <!-- <tr>
-                                <td>John Doe</td>
-                                <td>asd@asd.asd</td>
-                                <td>2015-04-14 12:50:44</td>
-                            </tr>
-                            <tr>
-                                <td>Sam Semov</td>
-                                <td>asd@asd.asd</td>
-                                <td>2015-04-14 12:50:44</td>
-                            </tr>
-                            <tr>
-                                <td>Vesna Zmijanac</td>
-                                <td>asd@asd.asd</td>
-                                <td>2015-04-14 12:50:44</td>
-                            </tr>
-                            <tr>
-                                <td>Stavre Mihailov</td>
-                                <td>asd@asd.asd</td>
-                                <td>2015-04-14 12:50:44</td>
-                            </tr> -->
                         </tbody>
                     </table>
                     </div>

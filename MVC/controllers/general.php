@@ -1,6 +1,6 @@
 <?php
 
-class General {
+		class General {
 	public $db;
 
 	function __construct(){
@@ -23,7 +23,6 @@ class General {
 
 	}
 }
-
 
 
 ?>
